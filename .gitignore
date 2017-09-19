@@ -1,0 +1,13 @@
+*.pyc
+.idea/
+*.swp
+xadmin/.tx/
+*.tgz
+*.DS_Store
+*.zip
+logs/
+*.log
+*.pid
+l2tp/migrations
+xadmin/migrations
+examples

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.title}}</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <style>
+        .error{
+            color: #a93c38;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style="padding-top: 2%;">
+    <div class="row">
+        <div class="span12">
+            <p class="lead">
+                <strong>说明: </strong><em>全部为必填选项</em>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <form method="post" action=''>
+            <div class="form-group">
+                <label>*域名</label>
+                <b class="error">{{ map_get .maps "Host.Required" }}</b>
+                <input type="text" class="form-control" name="host" placeholder="域名" value="{{ map_get .maps "Host"}}">
+            </div>
+            <div class="form-group">
+                <label>请求方法</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="method"  value="GET" checked>
+                        GET
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="method"  value="POST">
+                        POST
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>*备注</label>
+                <b class="error">{{ map_get .maps "Ps.Required" }}</b>
+                <input type="text" class="form-control" name="ps" placeholder="备注" value="{{ map_get .maps "Ps"}}" >
+            </div>
+            <div class="form-group">
+                <label>*返回结果</label>
+                <b class="error">{{ map_get .maps "Result.Required" }}</b>
+                <textarea class="form-control" rows="3" name="result" placeholder='示例: {"code":"1"}'>{{ map_get .maps "Result"}}</textarea>
+            </div>
+            <input type="submit" class="btn  btn-lg btn-success" value="添加">
+        </form>
+    </div>
+</div>
+</body>
+</html>
